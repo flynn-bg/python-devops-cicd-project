@@ -4,10 +4,9 @@ from typing import Collection
 
 logger = logging.getLogger(__name__)
 
+
 def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
-    """Checks a list of urls and returns status
-    
-    """
+    """Checks a list of urls and returns status"""
 
     logger.info(f"Starting check for {len(urls)} URLs with a timeout of {timeout}")
     results = {}
@@ -36,7 +35,7 @@ def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
                 f"An unexpected request error occured for {url}: {e}",
                 exc_info=True,
             )
-        
+
         results[url] = status
         logger.debug(f"Checked: {url:<40} -> {status}")
 

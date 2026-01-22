@@ -1,4 +1,4 @@
-name:CI/CD for simple-http-checker
+name: CI/CD for simple-http-checker
 
 on:
   push:

@@ -12,7 +12,6 @@ def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
     results = {}
 
     for url in urls:
-        logging.debug("zz9")
         status = "UNKNOWN"
 
         try:
@@ -37,6 +36,7 @@ def check_urls(urls: Collection[str], timeout: int = 5) -> dict[str, str]:
             )
 
         results[url] = status
+        print("results", results)
         logger.debug(f"Checked: {url:<40} -> {status}")
 
     logger.info("URL check finished.")

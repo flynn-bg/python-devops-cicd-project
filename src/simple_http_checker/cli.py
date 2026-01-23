@@ -27,8 +27,8 @@ def main(urls: Collection, timeout: int, verbose: bool):
     logger.debug(f"Received verbose: {verbose}")
 
     if not urls:
-        logger.warning("NoURLs provided to check")
-        click.echo("Usages: chech-urls <URL1> <URL2> ..")
+        logger.warning("No URLs provided to check")
+        click.echo("Usage: check-urls <URL1> <URL2> ..")
         return
 
     logger.info(f"Starting check for {len(urls)}")
@@ -37,7 +37,9 @@ def main(urls: Collection, timeout: int, verbose: bool):
 
     click.echo("\n---Results---")
     for url, status in results.items():
+        print(url, status)
+
         if "OK" in status:
-            click.secho(f"{url}:<40 -> {status}", fg="green")
+            click.secho(f"{url} -> {status}", fg="green")
         else:
-            click.secho(f"{url}:<40 -> {status}", fg="red")
+            click.secho(f"{url} -> {status}", fg="red")

@@ -3,7 +3,7 @@ requires = ["setuptools>=77.0"]
 build-backend = "setuptools.build.meta"
 
 [project]
-name = "simple-http-checker"
+name = "simple_http_checker"
 version = "0.1.0"
 description = "Simple CLI to to check status of URLs"
 readme = "README.md"
@@ -13,8 +13,13 @@ dependencies = [
   "click>=8.0,<9.0"
 ]
 
+[tool.setuptools.packages.find]
+where = ["src"]
+
 [project.optional-dependencies]
 dev = [
+  "pytest",
+  "pytest-mock",
   "ruff",
   "black",
   "mypy",
@@ -38,3 +43,6 @@ ignore_missing_imports = true
 
 [tool.bandit]
 exclude_dirs = [".venv", "__pycache__", "build", "dist"]
+
+[tools.pytest.ini_options]
+addopts = "-rA -s -v"
